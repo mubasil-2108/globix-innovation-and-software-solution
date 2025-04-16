@@ -94,10 +94,17 @@ export const logoutUser = createAsyncThunk(
 export const checkAuth = createAsyncThunk(
     'auth/checkauth',
     async () => {
+        const token = sessionStorage.getItem('token');
+        const parsedToken = token ? JSON.parse(token) : null;
+
+        if (!parsedToken) {
+            throw new Error("No token found");
+        }
         const response = await axios.get(`${API_URL}/api/auth/check-auth`,
             {
                 withCredentials: true,
                 headers: {
+                    Authorization: `Bearer ${parsedToken}`,
                     "Cache-Control":
                         "no-store, no-cache, must-revalidate, proxy-revalidate",
                 }
@@ -136,6 +143,7 @@ const authSlice = createSlice({
                 state.isLoading = false;
                 state.user = action.payload.success ? action.payload.user : null;
                 state.isAuthenticated = action.payload.success;
+                sessionStorage.setItem('token', JSON.stringify(action.payload.token));
             })
             .addCase(loginUser.rejected, (state) => {
                 state.isLoading = false;
