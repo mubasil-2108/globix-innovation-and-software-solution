@@ -88,6 +88,10 @@ const FloatingLanguages = () => {
                   component="img"
                   src={getLogoPath(lang)}
                   alt={lang}
+                  onError={(e) => {
+                    e.target.style.display = 'none'; // Hide broken images
+                    console.error(`Failed to load logo: ${lang}`);
+                  }}
                   sx={{
                     height: `${size}px`,
                     width: 'auto',
