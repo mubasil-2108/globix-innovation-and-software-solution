@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
     cors({
-        origin: process.env.CLIENT_BASE_URL,
+        origin: 'https://globix-innovation-and-software-solution-xsrw.vercel.app',
         // function (origin, callback) {
         //     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
         //         callback(null, true); // Allow the origin
@@ -45,7 +45,9 @@ app.use(
             'Expires',
             'Pragma',
         ],
-        credentials: true
+        credentials: true,
+        preflightContinue: false,
+        optionsSuccessStatus: 204
     })
 )
 
