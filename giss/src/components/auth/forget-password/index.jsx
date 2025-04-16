@@ -54,7 +54,7 @@ const ForgetPassword = ({ onBackToLogin }) => {
     return (
         <div style={{display: 'flex', flexDirection: 'column', width: '100%'}}>
             <form action="#" onSubmit={onSubmit}>
-                <h1>Forget Password</h1>
+                <h1 style={{color:'#fff'}}>Forget Password</h1>
                 <div className='input-box '>
                     <FaEnvelope className='icon-left' />
                     <input type='email' placeholder='Email' value={formForgetPassword.email} onChange={(e) => setFormForgetPassword({
@@ -80,7 +80,7 @@ const ForgetPassword = ({ onBackToLogin }) => {
                 </div>
                 <button type='submit' className='btn'>Forget Password</button>
             </form>
-            <Typography onClick={onBackToLogin} sx={{color: '#000', ":hover": {color: 'blue'}}} style={{cursor: 'pointer', textAlign: 'center', marginTop: '10px'}}>Back to Login</Typography>
+            <Typography onClick={onBackToLogin} sx={{color: '#fff', ":hover": {color: 'blue'}}} style={{cursor: 'pointer', textAlign: 'center', marginTop: '10px'}}>Back to Login</Typography>
             <ForgetDialouge handleClose={handleClose} initialState={initialState} setFormForgetPassword={setFormForgetPassword} email={formForgetPassword.email} open={dialougeOpen}/>
         </div>
     )

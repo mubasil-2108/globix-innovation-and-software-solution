@@ -23,10 +23,10 @@ const NotFoundPage = () => {
           sx={{ width: '100%', maxWidth: 500, maxHeight: 300, height: 'auto', mb: 4 }}
         />
         
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1" color="#fff" gutterBottom>
           Oops! Page Not Found
         </Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ mb: 3, maxWidth: 500 }}>
+        <Typography variant="body1" color="#fff" sx={{ mb: 3, maxWidth: 500 }}>
           We couldn't find the page you're looking for. It might have been moved or doesn't exist anymore.
         </Typography>
         

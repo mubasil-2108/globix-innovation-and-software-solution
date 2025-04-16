@@ -21,9 +21,9 @@ const AuthLogin = () => {
     const location = useLocation();
     const { handleForgotPasswordClick, handleBackToLoginClick } = useOutletContext();
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        dispatch(loginUser(formDataLogin)).then((data) => {
+        await dispatch(loginUser(formDataLogin)).then((data) => {
             if (data?.payload?.success) {
                 toast.success(data?.payload?.message)
                 setFormDataLogin(initialStateLogin)

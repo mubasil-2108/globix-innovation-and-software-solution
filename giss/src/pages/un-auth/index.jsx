@@ -23,11 +23,11 @@ const UnauthorizedPage = () => {
           sx={{ width: '100%', maxWidth: 400, height: 'auto', mb: 4 }}
         />
         
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h4" component="h1" color='#fff' gutterBottom>
           Access Denied
         </Typography>
         
-        <Typography variant="body1" color="text.secondary" sx={{ mb: 3, maxWidth: 500 }}>
+        <Typography variant="body1" color="#fff" sx={{ mb: 3, maxWidth: 500 }}>
           You need proper permissions to view this page. Please contact your administrator or log in.
         </Typography>
         
