@@ -43,12 +43,22 @@ const ProjectsSection = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
   const { projectList } = useSelector(state => state.adminProject)
-  const [currentImageIndices, setCurrentImageIndices] = useState(projectList?.map(() => 0));
+  // const [currentImageIndices, setCurrentImageIndices] = useState(projectList?.map(() => 0));
+  const [currentImageIndices, setCurrentImageIndices] = useState([]);
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false,
   });
 
+  useEffect(() => {
+    dispatch(fetchAllProjects());
+  }, [dispatch])
+
+  useEffect(() => {
+    if (projectList) {
+      setCurrentImageIndices(projectList.map(() => 0));
+    }
+  }, [projectList]);
   const handleNextImage = (projectIndex) => {
     setCurrentImageIndices(prevIndices => {
       const newIndices = [...prevIndices];
@@ -73,10 +83,6 @@ const ProjectsSection = () => {
       [id]: !prev[id]
     }));
   };
-
-  useEffect(async () => {
-    await dispatch(fetchAllProjects());
-  },[dispatch])
 
   return (
     <Box
@@ -248,24 +254,24 @@ const ProjectsSection = () => {
                     <Typography gutterBottom variant="h5" component="h3">
                       {project?.projectName}
                     </Typography>
-                    <Box sx={{ maxHeight: 100, overflowY: expandedProjects[project._id] ? 'scroll': 'hidden'}}>
-                    <Typography variant="body1" color="text.secondary" sx={{ fontSize:14, maxWidth: 250 }}>
-                      {
-                        expandedProjects[project._id]
-                          ? project?.projectDescription
-                          : `${project?.projectDescription?.slice(0, 100)}${project?.projectDescription?.length > 100 ? '...' : ''}`
-                      }
-                    </Typography>
+                    <Box sx={{ maxHeight: 100, overflowY: expandedProjects[project._id] ? 'scroll' : 'hidden' }}>
+                      <Typography variant="body1" color="text.secondary" sx={{ fontSize: 14, maxWidth: 250 }}>
+                        {
+                          expandedProjects[project._id]
+                            ? project?.projectDescription
+                            : `${project?.projectDescription?.slice(0, 100)}${project?.projectDescription?.length > 100 ? '...' : ''}`
+                        }
+                      </Typography>
                     </Box>
                     {project?.projectDescription?.length > 100 && (
                       <Typography
-                        sx={{ cursor:'pointer', textAlign:'right', color: '#000', mb:2, fontSize: 12, fontWeight:'bold', alignItems:'flex-end', textTransform: 'none', px: 0 }}
+                        sx={{ cursor: 'pointer', textAlign: 'right', color: '#000', mb: 2, fontSize: 12, fontWeight: 'bold', alignItems: 'flex-end', textTransform: 'none', px: 0 }}
                         onClick={() => toggleReadMore(project._id)}
                       >
                         {expandedProjects[project._id] ? 'Read Less' : 'Read More'}
                       </Typography>
                     )}
-                    
+
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
                       {project?.projectTechnologies.map((tag) => (
                         <Chip
