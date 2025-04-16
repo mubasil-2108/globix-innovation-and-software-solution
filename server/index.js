@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const cors = require('cors');
 
 // Authentication
@@ -58,7 +59,13 @@ app.get('/', (req, res) => {
     res.send('Backend is running 🚀');
 });
 
+app.use(express.static(path.join(__dirname, 'client/build')));
 
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+});
 app.listen(PORT,()=>{
     console.log(`Server is running on port ${PORT}`)
 })
