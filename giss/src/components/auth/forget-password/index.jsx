@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import '../../../pages/auth/autherization.css'
 import { FaEnvelope, FaEye, FaLock } from 'react-icons/fa'
 import { Typography } from '@mui/material'
@@ -6,7 +6,6 @@ import toast from 'react-hot-toast'
 import ForgetDialouge from '../dialouge'
 import { useDispatch } from 'react-redux'
 import { sendOtp } from '../../../store/auth-slice'
-import { useNavigate } from 'react-router-dom'
 
 const initialState = {
     email: "",
@@ -17,7 +16,6 @@ const initialState = {
 const ForgetPassword = ({ onBackToLogin }) => {
     const [formForgetPassword, setFormForgetPassword] = useState(initialState);
     const [showPassword, setShowPassword] = useState(false);
-        const navigate = useNavigate();
     const [dialougeOpen, setDialougeOpen] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const dispatch = useDispatch();

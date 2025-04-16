@@ -87,7 +87,6 @@ const AdminProject = () => {
         })).then((data) => {
             if (data?.payload?.success) {
                 toast.success(data?.payload?.message);
-                console.log(data, 'This is data');
                 dispatch(fetchAllProjects());
                 setOpen(false);
                 setSelectedImage([]);
@@ -100,7 +99,6 @@ const AdminProject = () => {
     useEffect(() => {
         dispatch(fetchAllProjects());
     }, [dispatch])
-    console.log(projectList, 'This is projectList');
     return (
         <Fragment>
             <Box sx={{ pb: 8, px: 2, }}>

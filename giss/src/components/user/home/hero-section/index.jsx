@@ -71,7 +71,6 @@ const RotatingMessages = () => {
 };
 
 const HeroSection = () => {
-  const theme = useTheme();
   const [ref, inView] = useInView({ threshold: 0.1 });
 
   return (

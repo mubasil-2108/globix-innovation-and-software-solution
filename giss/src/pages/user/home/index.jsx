@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Fab, useScrollTrigger, Zoom } from '@mui/material';
+import { Box,} from '@mui/material';
 import { ParallaxProvider } from 'react-scroll-parallax';
 import { LandingPage } from '../../../components/user';
 

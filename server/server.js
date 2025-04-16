@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -12,7 +14,7 @@ const projectRouter = require('./routes/admin/project')
 // create database connection
 
 mongoose
-    .connect('mongodb+srv://mubasilbehzad012:M0basil2108@cluster0.32p9z.mongodb.net/')
+    .connect(process.env.MONGO_URL)
     .then(() => {
         console.log('connected to database');
     })
@@ -26,7 +28,14 @@ const PORT = process.env.PORT || 5000;
 
 app.use(
     cors({
-        origin: 'http://localhost:3000',
+        origin: process.env.CLIENT_BASE_URL,
+        // function (origin, callback) {
+        //     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        //         callback(null, true); // Allow the origin
+        //     } else {
+        //         callback(new Error('Not allowed by CORS')); // Block the origin
+        //     }
+        // },
         methods: ['GET', 'POST', 'DELETE', 'PUT'],
         allowedHeaders:[
             'Content-Type',

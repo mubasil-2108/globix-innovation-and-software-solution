@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Container, Grid, useTheme, Avatar, Paper, Stack, Divider } from '@mui/material';
+import { Box, Typography, Container, Grid, useTheme, Avatar, Paper,} from '@mui/material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 

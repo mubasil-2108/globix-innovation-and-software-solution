@@ -1,4 +1,4 @@
-import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, Chip, Collapse, Divider, IconButton, styled, Typography } from '@mui/material'
+import { Box, Card, CardActions, CardContent, CardMedia, Chip, Collapse, Divider, IconButton, styled, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { FaAngleLeft, FaAngleRight, FaAngleUp, FaGithub, FaGlobe, FaTrash } from 'react-icons/fa'
 import { useDispatch } from 'react-redux';

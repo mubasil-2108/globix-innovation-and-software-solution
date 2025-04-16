@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { FaAngleLeft, FaAngleRight, FaCamera } from 'react-icons/fa'
 import { tokens } from '../../../theme';
 import axios from 'axios';
-
+const API_URL = process.env.REACT_APP_API_URL;
 const ProjectImageUpload = ({ setIsHovered, files, setUploadedImageUrl, selectedImage, currentIndex, isHovered, handleNextImage, handleImageChange, handlePrevImage }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -15,7 +15,7 @@ const ProjectImageUpload = ({ setIsHovered, files, setUploadedImageUrl, selected
         const formData = new FormData();
         files.forEach((image) => formData.append('images', image));
         try {
-            const response = await axios.post('http://localhost:5000/api/admin/projects/upload-image', formData, {
+            const response = await axios.post(`${API_URL}/api/admin/projects/upload-image`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

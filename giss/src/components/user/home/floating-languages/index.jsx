@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
-import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
 
 const FloatingLanguages = () => {
   const theme = useTheme();

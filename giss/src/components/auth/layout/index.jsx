@@ -1,11 +1,10 @@
 import { Outlet, useNavigate } from 'react-router-dom'
 import '../../../pages/auth/autherization.css'
-import { Box, useTheme } from '@mui/material';
+import { Box, } from '@mui/material';
 import { useState } from 'react';
 
 const AuthLayout = () => {
     const [isForgotPassword, setIsForgotPassword] = useState(false);
-    const theme = useTheme();
     const handleForgotPasswordClick = () => {
         setIsForgotPassword(true);
     };

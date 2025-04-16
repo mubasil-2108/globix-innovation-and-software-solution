@@ -81,12 +81,14 @@ const UserHeader = ({ setOpen }) => {
     };
     
     const handleClose = () => {
-        // Store current path before logout
-        sessionStorage.setItem('lastPathBeforeLogout', location.pathname);
-        dispatch(logoutUser());
         setAnchorEl(null);
         avatarRef.current?.blur();
     };
+
+    const handleLogout = () => {
+        sessionStorage.setItem('lastPathBeforeLogout', location.pathname);
+        dispatch(logoutUser());
+    }
 
     const isMobile = useMediaQuery('(max-width: 768px)');
    
@@ -179,7 +181,7 @@ const UserHeader = ({ setOpen }) => {
                             <Typography variant="subtitle1" fontWeight={'bold'} sx={{ textAlign: 'center' }}>Hello, {user.name}</Typography>
                         </Box>
                         <Divider sx={{ mt: 1, mb: 1 }} />
-                        <MenuItem onClick={handleClose}>
+                        <MenuItem onClick={handleLogout}>
                             <ListItemIcon>
                                 <FaSignOutAlt size={20} />
                             </ListItemIcon>

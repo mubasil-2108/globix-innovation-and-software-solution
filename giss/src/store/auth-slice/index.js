@@ -6,11 +6,11 @@ const initialState = {
     isLoading: true,
     user: null,
 }
-
+const API_URL = process.env.REACT_APP_API_URL;
 export const registerUser = createAsyncThunk(
     'auth/register',
     async (formData) => {
-        const response = await axios.post('http://localhost:5000/api/auth/register',
+        const response = await axios.post(`${API_URL}/api/auth/register`,
             formData,
             {
                 withCredentials: true
@@ -23,7 +23,7 @@ export const registerUser = createAsyncThunk(
 export const loginUser = createAsyncThunk(
     'auth/login',
     async (formData) => {
-        const response = await axios.post('http://localhost:5000/api/auth/login',
+        const response = await axios.post(`${API_URL}/api/auth/login`,
             formData,
             {
                 withCredentials: true
@@ -36,7 +36,7 @@ export const loginUser = createAsyncThunk(
 export const forgetPassword = createAsyncThunk(
     'auth/forgetpassword',
     async (formData) => {
-        const response = await axios.post('http://localhost:5000/api/auth/forget-password',
+        const response = await axios.post(`${API_URL}/api/auth/forget-password`,
             formData,
             {
                 withCredentials: true
@@ -54,7 +54,7 @@ export const forgetPassword = createAsyncThunk(
 export const sendOtp = createAsyncThunk(
     'auth/forgetpassword/sendotp',
     async (email) => {
-        const response = await axios.post('http://localhost:5000/api/auth/send-otp',
+        const response = await axios.post(`${API_URL}/api/auth/send-otp`,
              {email},
             {
                 withCredentials: true
@@ -67,7 +67,7 @@ export const sendOtp = createAsyncThunk(
 export const verifyOtp = createAsyncThunk(
     'auth/forgetpassword/verifyotp',
     async (formData) => {
-        const response = await axios.post('http://localhost:5000/api/auth/verify-otp',
+        const response = await axios.post(`${API_URL}/api/auth/verify-otp`,
             formData,
             {
                 withCredentials: true
@@ -80,7 +80,7 @@ export const verifyOtp = createAsyncThunk(
 export const logoutUser = createAsyncThunk(
     'auth/logout',
     async () => {
-        const response = await axios.post('http://localhost:5000/api/auth/logout',
+        const response = await axios.post(`${API_URL}/api/auth/logout`,
             {},
             {
                 withCredentials: true
@@ -94,7 +94,7 @@ export const logoutUser = createAsyncThunk(
 export const checkAuth = createAsyncThunk(
     'auth/checkauth',
     async () => {
-        const response = await axios.get('http://localhost:5000/api/auth/check-auth',
+        const response = await axios.get(`${API_URL}/api/auth/check-auth`,
             {
                 withCredentials: true,
                 headers: {

@@ -1,12 +1,10 @@
 import React from 'react';
-import { Box, Typography, Container, Grid, TextField, Button, useTheme, useMediaQuery } from '@mui/material';
+import { Box, Typography, Container, Grid, TextField, Button } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Parallax } from 'react-scroll-parallax';
 
 const ContactSection = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [ref, inView] = useInView({
     threshold: 0.1,
     triggerOnce: false,

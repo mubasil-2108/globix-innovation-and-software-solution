@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Container, Grid, useTheme, Card, CardMedia, CardContent, Button, Divider, CardActions, IconButton, Chip } from '@mui/material';
+import { Box, Typography, Container, Grid, useTheme, Card, CardMedia, CardContent, Divider, CardActions, IconButton, Chip } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Parallax } from 'react-scroll-parallax';
 import CountUp from 'react-countup';
-import { useNavigate } from 'react-router-dom';
 import { Data } from '../../../../services';
 import { FaAngleLeft, FaAngleRight, FaGithub, FaGlobe } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
@@ -43,7 +42,6 @@ const AnimatedCounter = ({ value, suffix = '', duration = 2, delay = 0 }) => {
 const ProjectsSection = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const { projectList } = useSelector(state => state.adminProject)
   const [currentImageIndices, setCurrentImageIndices] = useState(projectList?.map(() => 0));
   const [ref, inView] = useInView({

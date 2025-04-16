@@ -6,11 +6,12 @@ const initialState ={
     isLoading : false,
     projectList : [],
 }
+const API_URL = process.env.REACT_APP_API_URL;
 
 export const addNewProject = createAsyncThunk(
     'project/addNewProject',
     async (formData)=>{
-        const result = await axios.post('http://localhost:5000/api/admin/projects/add',
+        const result = await axios.post(`${API_URL}/api/admin/projects/add`,
             formData,
             {
                 headers:{
@@ -25,7 +26,7 @@ export const addNewProject = createAsyncThunk(
 export const fetchAllProjects = createAsyncThunk(
     'project/fetchAllProjects',
     async ()=>{
-        const response = await axios.get('http://localhost:5000/api/admin/projects/get');
+        const response = await axios.get(`${API_URL}/api/admin/projects/get`);
         return response?.data;
     }
 )
@@ -33,7 +34,7 @@ export const fetchAllProjects = createAsyncThunk(
 export const deleteProject = createAsyncThunk(
     'project/deleteProject',
     async (id)=>{
-        const response = await axios.delete(`http://localhost:5000/api/admin/projects/delete/${id}`);
+        const response = await axios.delete(`${API_URL}/api/admin/projects/delete/${id}`);
         return response?.data;
     }
 )

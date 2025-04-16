@@ -1,7 +1,7 @@
 import React, { Fragment, useRef, useState } from 'react';
-import { FaBars, FaTachometerAlt, FaSignOutAlt, FaCamera, FaProjectDiagram, FaEdit } from 'react-icons/fa';
+import { FaBars, FaTachometerAlt, FaSignOutAlt, FaCamera, FaProjectDiagram} from 'react-icons/fa';
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
-import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, TextField, Typography, useTheme } from '@mui/material';
+import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Typography, useTheme } from '@mui/material';
 import { tokens } from '../../../theme';
 import { useNavigate } from 'react-router-dom';
 import './sidebar.css';
@@ -14,7 +14,6 @@ const AdminSidebar = ({ open, setOpen }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     const { user } = useSelector(state => state.auth);
-    const [isEdited, setIsEdited] = useState(false);
     const [profileImage, setProfileImage] = useState(null);
     const [isHovered, setIsHovered] = useState(false);
     const [isDialogOpen, setIsDialogOpen] = useState(false);

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { loginUser } from '../../../store/auth-slice';
 import '../autherization.css'
 import toast from 'react-hot-toast';
-import { useLocation, useNavigate, useOutletContext } from 'react-router-dom';
+import { useLocation, useOutletContext } from 'react-router-dom';
 import { Typography } from '@mui/material';
 import { ForgetPassword } from '../../../components/auth';
 
@@ -19,7 +19,6 @@ const AuthLogin = () => {
     const [showForgetPassword, setShowForgetPassword] = useState(false); // New state
     const dispatch = useDispatch();
     const location = useLocation();
-    const navigate = useNavigate();
     const { handleForgotPasswordClick, handleBackToLoginClick } = useOutletContext();
 
     const onSubmit = (e) => {

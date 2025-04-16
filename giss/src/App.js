@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -6,18 +6,15 @@ import { AdminLayout } from './components/admin';
 import { AdminDashboard, AdminProject } from './pages/admin';
 import { checkAuth } from './store/auth-slice';
 import CheckAuth from './components/common/check-auth';
-import { AuthLayout, ForgetPassword } from './components/auth';
+import { AuthLayout} from './components/auth';
 import { AuthLogin, AuthRegister, } from './pages/auth';
 import { UserLayout } from './components/user';
-import { AboutUsPage, Home, NotFoundPage, Projects, UnauthorizedPage } from './pages/user';
-import { Fab, useScrollTrigger, Zoom } from '@mui/material';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
+import { AboutUsPage, Home, NotFoundPage,UnauthorizedPage } from './pages/user';
 
 function App() {
   // const isAuthenticated = false;
   // const user = null;
-  const { isAuthenticated, isLoading, user } = useSelector((state) => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {

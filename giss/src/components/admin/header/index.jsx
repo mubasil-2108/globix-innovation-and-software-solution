@@ -1,6 +1,5 @@
 import React from 'react'
 import './admin-header.css'
-import { FaBars, FaSignOutAlt } from 'react-icons/fa'
 import { Avatar, Box, useTheme } from '@mui/material'
 import { tokens } from '../../../theme'
 import { useSelector } from 'react-redux'
