@@ -74,8 +74,8 @@ const ProjectsSection = () => {
     }));
   };
 
-  useEffect(() => {
-    dispatch(fetchAllProjects());
+  useEffect(async () => {
+    await dispatch(fetchAllProjects());
   },[dispatch])
 
   return (
