@@ -1,0 +1,60 @@
+.nav-bar{
+    margin-top: 8;
+    display: flex;
+    flex-direction: column;
+    gap: 2;
+}
+
+.sidebar{
+    height: 100%;
+    /* width: 500px; */
+}
+
+.sidebarLogo{
+    display: flex;
+    /* width: 500px; */
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.sidebar-aside {
+    display: none;
+    width: 16rem; /* 64 * 0.25rem */
+    flex-direction: column;
+    border-right: 1px solid var(--border-color); /* Customize border color */
+    background-color: var(--bg-background); /* Customize background color */
+    padding: 1.5rem; /* 6 * 0.25rem */
+  }
+
+  .sidebar-aside div{
+    display: flex;
+    gap: 2;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .sidebar-aside div h1{
+    font-size: xx-large;
+    font-weight: bolder;
+  }
+
+  .menu-item {
+    /* display: flex; */
+    align-items: center;
+    /* gap: 8px; */
+    cursor: pointer;
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    border-radius: 6px;
+    color: var(--muted-foreground, #000000); /* Default muted foreground color */
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .menu-item:hover {
+    background-color: var(--muted, #f3f4f6); /* Default muted color */
+    color: var(--foreground, #29816a); /* Default foreground color */
+  }
+
+  /* MenuItem:hover {
+    
+  } */

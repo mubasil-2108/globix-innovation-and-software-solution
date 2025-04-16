@@ -1,0 +1,32 @@
+.body {
+    margin: 0;
+    padding: 0;
+}
+
+
+.mainContainer {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    position: fixed;
+    
+    /* background: #000; */
+}
+
+.main-layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.04);
+    /* Equivalent to bg-muted/40 */
+    /* padding: 1rem; */
+    /* Default padding */
+}
+
+@media (min-width: 768px) {
+    .main-layout {
+        padding: 1.5rem;
+        /* Adjusted padding for medium screens (md:p-6) */
+    }
+}

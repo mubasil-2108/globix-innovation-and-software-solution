@@ -1,0 +1,41 @@
+.mainContainer {
+    display: flex;
+    width: 100%;
+    min-height: auto;
+    position: fixed;
+}
+
+.main-layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.04);
+    /* Equivalent to bg-muted/40 */
+    padding: 1rem;
+    /* Default padding */
+}
+
+@media (min-width: 768px) {
+    .main-layout {
+        padding: 1.5rem;
+        /* Adjusted padding for medium screens (md:p-6) */
+    }
+}
+
+.admin ::-webkit-scrollbar {
+    width: 6px; /*Thin scrollbar*/
+  }
+  
+  .admin  ::-webkit-scrollbar-track {
+    background: transparent; /* Hide track */
+  }
+  
+  .admin  ::-webkit-scrollbar-thumb {
+    background: #9ca3af; /* Light gray */
+    border-radius: 10px;
+  }
+  
+  .admin ::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af; /* Darker gray on hover */
+  }

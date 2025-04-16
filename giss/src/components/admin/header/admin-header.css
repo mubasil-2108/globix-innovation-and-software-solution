@@ -1,0 +1,75 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 35px;
+    justify-content: space-between;
+    padding: 12px 16px;
+    /* position: relative; */
+    /* background-color: var(--background-color, #f9f9f9); */
+    /* border-bottom: 1px solid #ddd; */
+}
+
+/* .menu-button {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+} */
+
+.logout-container {
+    display: flex;
+    /* flex: 1; */
+    position: absolute;
+    right: 5%;
+    top: 2%;
+    justify-content: flex-end;
+}
+
+.logout {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    background: white;
+    border-radius: 6px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border: none;
+}
+
+.logout-button:hover {
+    background: #f0f0f0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Default: Hidden */
+.responsive-menu {
+    display: none;
+}
+
+/* Small screens (sm:block) - Show the element */
+@media (min-width: 400px) {
+    .responsive-menu {
+        display: block;
+        border: none;
+    }
+}
+
+/* Large screens (lg:hidden) - Hide the element */
+@media (min-width: 1024px) {
+    .responsive-menu {
+        display: none;
+    }
+}

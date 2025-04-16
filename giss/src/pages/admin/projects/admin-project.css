@@ -1,0 +1,25 @@
+
+.btn-box{
+    margin-bottom: 5;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.grid-container {
+    display: grid;
+    gap: 2rem ; /* Equivalent to Tailwind's gap-4 */
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default: 1 column */
+  }
+  
+  @media (min-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* md:grid-cols-3 */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .grid-container {
+      grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-4 */
+    }
+  }
