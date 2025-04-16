@@ -46,11 +46,11 @@ const AdminProjectTile = ({ project }) => {
         setExpanded(!expanded);
     };
 
-    const handleDeleteProject = () => {
-        dispatch(deleteProject(project?._id)).then((data) => {
+    const handleDeleteProject = async () => {
+        await dispatch(deleteProject(project?._id)).then( async (data) => {
             if (data?.payload?.success) {
                 toast.success(data?.payload?.message)
-                dispatch(fetchAllProjects());
+                await dispatch(fetchAllProjects());
             } else {
                 toast.error(data?.payload?.message)
             }

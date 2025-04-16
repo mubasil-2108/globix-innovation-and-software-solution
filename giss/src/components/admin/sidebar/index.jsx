@@ -24,8 +24,8 @@ const AdminSidebar = ({ open, setOpen }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const handleLogout = () => {
-        dispatch(logoutUser());
+    const handleLogout = async () => {
+        await dispatch(logoutUser());
     }
 
     const handleImageChange = (event) => {

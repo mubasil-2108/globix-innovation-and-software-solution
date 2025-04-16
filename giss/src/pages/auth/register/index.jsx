@@ -18,7 +18,7 @@ const AuthRegister = () => {
 
     const dispatch = useDispatch();
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         if (formDataRegister.password !== formDataRegister.confirmPassword) {
@@ -26,7 +26,7 @@ const AuthRegister = () => {
             return;
         }
 
-        dispatch(registerUser(formDataRegister)).then((data) => {
+        await dispatch(registerUser(formDataRegister)).then((data) => {
             if (data?.payload?.success) {
                 toast.success(data?.payload?.message)
                 setFormDataRegister(initialStateRegister)

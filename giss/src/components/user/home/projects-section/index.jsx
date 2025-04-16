@@ -50,8 +50,8 @@ const ProjectsSection = () => {
     triggerOnce: false,
   });
 
-  useEffect(() => {
-    dispatch(fetchAllProjects());
+  useEffect( async () => {
+    await dispatch(fetchAllProjects());
   }, [dispatch])
 
   useEffect(() => {

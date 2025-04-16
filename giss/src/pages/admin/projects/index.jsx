@@ -79,15 +79,15 @@ const AdminProject = () => {
         setCurrentIndex((prev) => (prev - 1 + selectedImage.length) % selectedImage.length);
     }
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
-        dispatch(addNewProject({
+        await dispatch(addNewProject({
             ...formData,
             image: uploadedImageUrl
-        })).then((data) => {
+        })).then( async (data) => {
             if (data?.payload?.success) {
                 toast.success(data?.payload?.message);
-                dispatch(fetchAllProjects());
+                await dispatch(fetchAllProjects());
                 setOpen(false);
                 setSelectedImage([]);
                 setFiles([]);
@@ -96,8 +96,8 @@ const AdminProject = () => {
         })
     }
 
-    useEffect(() => {
-        dispatch(fetchAllProjects());
+    useEffect( async () => {
+        await dispatch(fetchAllProjects());
     }, [dispatch])
     return (
         <Fragment>

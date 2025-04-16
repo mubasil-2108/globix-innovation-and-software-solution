@@ -51,12 +51,12 @@ const ForgetDialouge = ({ handleClose, email, open, setFormForgetPassword, initi
     // Gather OTP as a string (ignoring empty values)
     const finalOtp = otp.join('');
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (finalOtp.length === 6) {
-            dispatch(verifyOtp({ email, otp: finalOtp })).then((data) => {
+            await dispatch(verifyOtp({ email, otp: finalOtp })).then( async (data) => {
                 if (data?.payload?.success) {
                     toast.success(data?.payload?.message);
-                    dispatch(forgetPassword({ email, otp: finalOtp })).then((data) =>{
+                    await dispatch(forgetPassword({ email, otp: finalOtp })).then((data) =>{
                         if (data?.payload?.success) {
                             toast.success(data?.payload?.message);
                             handleClose(); // Close the dialog on success

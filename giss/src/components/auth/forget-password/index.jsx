@@ -34,14 +34,14 @@ const ForgetPassword = ({ onBackToLogin }) => {
         setDialougeOpen(false);
     };
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
         if (formForgetPassword.password !== formForgetPassword.confirmPassword) {
             toast.error("Passwords do not match");
             return;
         }
         setDialougeOpen(true);
-        dispatch(sendOtp(formForgetPassword.email)).then((data) => {
+        await dispatch(sendOtp(formForgetPassword.email)).then((data) => {
             if (data?.payload?.success) {
                 toast.success("OTP sent successfully");
                 setDialougeOpen(true);

@@ -85,9 +85,9 @@ const UserHeader = ({ setOpen }) => {
         avatarRef.current?.blur();
     };
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
         sessionStorage.setItem('lastPathBeforeLogout', location.pathname);
-        dispatch(logoutUser());
+        await dispatch(logoutUser());
     }
 
     const isMobile = useMediaQuery('(max-width: 768px)');
